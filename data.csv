@@ -3,7 +3,7 @@ ID,Name,Surname,Positions
 2,Bajura,Kaja,R;(L);(P)
 3,Bartek,Gromek,P;A
 4,Bartosz,Miklas,R;(A)
-5,Bartosz,Młynarski,S;(P);(L);(R)
+5,Bartosz,Młynarski,S;(P);(L);(R);(A)
 6,Błażej,Czyżycki,L;(P);(A)
 7,Cezary,Łaszczyca,A;(P)
 8,Dawid,Matysiak,R;(P)
@@ -30,7 +30,7 @@ ID,Name,Surname,Positions
 29,Maksymilian,Noga-Kladiwa,L;P
 30,Marlena,Najder,P;(A)
 31,Mateusz,Grzyb,S;(A);(R);(P)
-32,Mateusz,Wirkijowski,P;(L)
+32,Mateusz,Wirkijowski,P;(S)
 33,Michał,Bujak,S;P;(L)
 34,Michał,Cynarski,R;(A)
 35,Michał,Flis,P;(S)
