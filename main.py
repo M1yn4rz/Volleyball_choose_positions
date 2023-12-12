@@ -4,22 +4,22 @@ import algorithm as al
 
 def main():
 
-    people = [  'Michał Bujak',
-                'Patryk Nalepka',
-                'Bartosz Miklas',
-                'Michał Cynarski',
-                'Bartosz Młynarski',
-                'Mateusz Wirkijowski',
-                'Błażej Czyżycki',
-                'Jakub Strojewski',
-                'Dominik Babiarczyk',
-                'Karol Dulak',
-                'Jakub Borowiecki',
-                'Grzesiek Chmura',
-                'Jakub Świeca',
-                'Jakub Sobczyk']
+    people = ['Karol Dulak',
+              'Patryk Nalepka',
+              'Jakub Borowiecki',
+              'Bajura Kaja',
+              'Grzesiek Chmura',
+              'Krystian Relidzyński',
+              'Łukasz Broś',
+              'Jakub Strojewski',
+              'Dominik Babiarczyk',
+              'Michał Cynarski',
+              'Bartosz Młynarski',
+              'Mikołaj Wandzel',
+              'Karolina Michalik',
+              'Kacper Iwicki']
 
-    al.select_positions(people, option = 'Name', number_players = 14)
+    al.select_positions(people)
 
 
 

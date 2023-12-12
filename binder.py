@@ -8,7 +8,7 @@ def data_binder():
 
     new_data = data.sort_values(by = ['Name', 'Surname'], ascending = True)
 
-    for i in range(len(data)):
+    for i in range(len(new_data)):
         new_data['ID'][i] = i + 1
 
     new_data.to_csv('data.csv', index=False)

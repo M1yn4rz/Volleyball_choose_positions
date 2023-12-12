@@ -1,0 +1,49 @@
+Options:
+
+	Number of players: 14
+	Libero: True
+	Fill: False
+
+People to add:
+
+    ID      Name      Surname    Positions
+0   23     Karol        Dulak        P;(A)
+1   45    Patryk      Nalepka        P;(S)
+2   14     Jakub   Borowiecki        P;(A)
+3    2    Bajura         Kaja    R;(L);(P)
+4   13  Grzesiek       Chmura  P;L;(S);(A)
+5   25  Krystian  Relidzyński        S;(P)
+6   53    Łukasz         Broś        S;(P)
+7   17     Jakub   Strojewski    A;(P);(R)
+8   10   Dominik   Babiarczyk        S;(P)
+9   35    Michał     Cynarski        R;(A)
+10   5   Bartosz    Młynarski  S;(L);(R);A
+11  42   Mikołaj      Wandzel        R;(P)
+12  24  Karolina     Michalik        P;(A)
+13  19    Kacper       Iwicki        L;(P)
+
+Players in positions:
+
+	Setters:
+		(R) - Bajura Kaja
+		(R) - Michał Cynarski
+
+	Liberos:
+		(L) - Kacper Iwicki
+		(L) - Grzesiek Chmura
+
+	Opposite Hitters:
+		(A) - Jakub Strojewski
+		(A) - Jakub Borowiecki
+
+	Middle Blockers:
+		(S) - Krystian Relidzyński
+		(S) - Łukasz Broś
+		(S) - Dominik Babiarczyk
+		(S) - Bartosz Młynarski
+
+	Outside Hitters:
+		(P) - Karol Dulak
+		(P) - Patryk Nalepka
+		(P) - Karolina Michalik
+		(P) - Mikołaj Wandzel
