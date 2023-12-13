@@ -2,8 +2,10 @@ import algorithm as al
 
 
 
+# Główna funkcja programu
 def main():
 
+    # Zmienna z osobami biorącymi udział w grze
     people = ['Karol Dulak',
               'Patryk Nalepka',
               'Jakub Borowiecki',
@@ -19,9 +21,11 @@ def main():
               'Karolina Michalik',
               'Kacper Iwicki']
 
+    # Wywołanie algorytmu wybierającego pozycje dla zawodników
     al.select_positions(people)
 
 
 
+# Wywołanie funkcji głównej main()
 if __name__ == '__main__':
     main()

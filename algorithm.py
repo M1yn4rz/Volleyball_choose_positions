@@ -5,13 +5,16 @@ import pandas as pd
 # Funkcja znajdująca suboptymalny skład do gry w siatkówke
 def select_positions(people = None, number_players = 14, libero = True, fill = False):
 
+    # Otworzenie pliku, do którego będzie wpisany raport z wykonywanego algorytmu
     with open('raport.txt', 'w', encoding = 'utf8') as f:
 
+        # Wyświetlenie wybranych opcji w terminalu
         print("\nOptions:\n")
         print("\tNumber of players:", number_players)
         print("\tLibero:", libero)
         print("\tFill:", fill, "\n")
 
+        # Wyświetlenie wybranych opcji w raporcie
         f.write("Options:\n")
         f.write("\n\tNumber of players: " + str(number_players))
         f.write("\n\tLibero: " + str(libero))
@@ -32,6 +35,7 @@ def select_positions(people = None, number_players = 14, libero = True, fill = F
             f.write('\nERROR - Incorrect number of players')
             f.write("\nFill: " + str(fill) + "\n")
 
+        # Utworzenie zmiennej sprawdzającej czy można kontynuować wykonywanie algorytmu
         continue_permit = True
 
         # Przepisywanie danych ze zmiennej data do zmiennej new_data poprzez nazwę zawodnika
@@ -45,11 +49,13 @@ def select_positions(people = None, number_players = 14, libero = True, fill = F
                 f.write('\nERROR - ' + str(name) + ' ' + str(surname) + " hasn't been written")
                 continue_permit = False
         
+        # Sprawdzenie pozwolenia kontynuacji wykonywania algorytmu
         if not continue_permit:
             print('\nERROR - interruption of program operation - not everyone has been written\n')
             f.write('\n\nERROR - interruption of program operation - not everyone has been written')
             return None
 
+        # Wyświetlenie aktualnej listy zawodników do podziału na pozycje
         print("\nPeople to add:\n\n", new_data)
         f.write("\nPeople to add:\n\n" + str(new_data))
 
@@ -67,7 +73,6 @@ def select_positions(people = None, number_players = 14, libero = True, fill = F
         list_of_id = [i for i in range(len(new_data))]
 
         # Utworzenie listy przechowującej pełne nazwy pozycji
-
         if libero:
             names_positions = ['Setters', 'Liberos', 'Opposite Hitters', 'Middle Blockers', 'Outside Hitters']
             positions_print = positions
@@ -174,17 +179,28 @@ def select_positions(people = None, number_players = 14, libero = True, fill = F
                     if positions[j] in pos:
                         positions_count[j] += 1
 
+            # Utworzenie zmiennej sprawdzającej zmiany
             change = True
 
+            # Utworzenie pętli wykonującej się dopóki zachodzą zmiany
             while change:
 
                 change = False
 
+                # Sprawdzenie czy można wstawić jakiś zawodników na pozycje według ich głównej pozycji
                 for pos_ID in range(5):
                     if positions_count[pos_ID] <= 0 and standard_value[pos_ID] < 0:
+
+                        # Skopiowanie listy ID zawodników
                         list_of_id_copy = list_of_id.copy()
+
+                        # Iterowanie po zawodnikach z listy ID
                         for candidate in list_of_id_copy:
                             pos = new_data['Positions'][candidate].split(';')
+
+                            # Jeśli zawodnik gra na danej pozycji, to wpisać go do zmiennej players,
+                            # usunąć go ze zmiennej new_data, zaktualizować parametry standard_value
+                            # oraz positions_count i zapisać do zmiennej wykonanie zmiany
                             if positions[pos_ID] in pos:
                                 name = new_data['Name'][candidate]
                                 surname = new_data['Surname'][candidate]
@@ -195,6 +211,7 @@ def select_positions(people = None, number_players = 14, libero = True, fill = F
                                 list_of_id.remove(candidate)
                                 change = True
 
+                # Przepisanie deficytu pozycji do zmiennej tymczasowej
                 positions_count = standard_value.copy()
 
                 # Liczenie deficytu i nadmiaru osób na każdą pozycje
@@ -204,6 +221,7 @@ def select_positions(people = None, number_players = 14, libero = True, fill = F
                         if positions[j] in pos:
                             positions_count[j] += 1
 
+            # Uzupełnienie zmiennej players komunikatami o potrzebie dodatkowych zawodników
             while min(standard_value) < 0:
                 for pos_ID in range(5):
                     if standard_value[pos_ID] < 0:
@@ -225,9 +243,11 @@ def select_positions(people = None, number_players = 14, libero = True, fill = F
                 f.write("\n\t\t(" + str(positions_print[i]) + ") - " + str(e))
         print()
 
+        # Wypadku nieprzypisania wszystkich zawodników do pozycji,
+        # wyświetlenie nieprzypisanych zawodników
         if len(new_data):
-
             print("Not add players:\n\n", new_data, "\n")
             f.write("\n\nNot add players:\n\n" + str(new_data))
 
+        # Zamknięcie pliku z raportem z działania algorytmu
         f.close()
